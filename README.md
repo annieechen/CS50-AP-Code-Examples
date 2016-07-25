@@ -1,10 +1,10 @@
-=CS50 AP Code Examples
+#CS50 AP Code Examples
 
 To be used in the CS50 AP Computer Science Principles Course
 
-== Table of Contents
+## Table of Contents
 
-=== Unit 1
+### Unit 1
  
 ###### Unit 1 has been reordered, these code examples need to be re-evaluated to make sure the prior knowledge they rely on is still valid.
 0. Psuedocode
@@ -17,7 +17,7 @@ To be used in the CS50 AP Computer Science Principles Course
 7. Loops
 
 
-=== Unit 2
+### Unit 2
 
 0. Compiling, source code, and object code
 1. Functions and returning
