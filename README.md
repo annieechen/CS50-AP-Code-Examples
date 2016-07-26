@@ -1,6 +1,6 @@
 #CS50 AP Code Examples
 
-To be used in the CS50 AP Computer Science Principles Course
+##### Note: Executable files (files without a .c extensions) are included because these code examples line up with the CS50 AP curriculum, which is meant to be taught using the [CS50 IDE](cs50.io). Folders (or the entire repository) can be downloaded via the green `Clone or download` button on the top right, uploaded to the CS50 IDE (File -> Upload Local Files), and then unzipped on the command line (`unzip <folder>.zip`). Programs can then be run without re`make`ing. 
 
 ## Table of Contents
 
