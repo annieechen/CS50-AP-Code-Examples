@@ -11,7 +11,7 @@ where running `make <program>` fills in the proper name of the program.
 
 This turns our source code (the C program) to object code (if you try to open an executable file in the text editor, you'll see gibberish).
 
-But there are steps in between. Code is first *preprocessed*, then *compiled*, and then *assembled*.  We can use specific commands to break down and look at what's happening with each step.
+But there are steps in between. Code is first *preprocessed*, then *compiled*, then *assembled*, and finally, sometimes *linked**.  We can use specific commands to break down and look at what's happening with each step.
 
 The files in this folder show each step of the process of turning `hello.c` into an executable.
 
@@ -53,3 +53,18 @@ This step combines multiple object code files into a single object code file (fo
 ```
 clang hello.o -lm
 ```
+But because we're only using functions from `stdio.h`, which is linked in automatically (so we don't have to specify antyhing like `-lcs50`, we can simply run 
+
+```
+clang hello.o
+``` 
+
+and we'll end up with a file called `a.out`. 
+
+Try running it with 
+
+```
+./a.out
+```
+
+What do you get?
