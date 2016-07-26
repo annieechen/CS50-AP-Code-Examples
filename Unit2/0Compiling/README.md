@@ -11,7 +11,7 @@ where running `make <program>` fills in the proper name of the program.
 
 This turns our source code (the C program) to object code (if you try to open an executable file in the text editor, you'll see gibberish).
 
-But there are steps in between. Code is first *preprocessed*, then *compiled*, then *assembled*, and finally, sometimes *linked**.  We can use specific commands to break down and look at what's happening with each step.
+But there are steps in between. Code is first *preprocessed*, then *compiled*, then *assembled*, and finally, *linked**.  We can use specific commands to break down and look at what's happening with each step.
 
 The files in this folder show each step of the process of turning `hello.c` into an executable.
 
@@ -42,9 +42,8 @@ We can turn our assembly code (`hello.s`) into object code by running
 clang -c hello.s
 ```
 
-which will give us the file `hello.o`. Try and open the file. You'll notice that the IDE gives you an error. It can't even open a `.o` file!
+which will give us the file `hello.o`. Try and open the file. You'll notice that the IDE gives you an error. We still need to do some linking.
 
-But because hello.c didn't require linking any other libraries, it turns out that `hello.o` is the same as the executable `hello` that would have been created had you run `make hello`. So go ahead and open `hello`. Not even words!
 
 ### Linking
 
