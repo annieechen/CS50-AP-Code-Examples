@@ -13,7 +13,7 @@ This turns our source code (the C program) to object code (if you try to open an
 
 But there are steps in between. Code is first *preprocessed*, then *compiled*, and then *assembled*.  We can use specific commands to break down and look at what's happening with each step.
 
-The files in this folder show each step, on a file called `hello.c`.
+The files in this folder show each step of the process of turning `hello.c` into an executable.
 
 ### Preprocessing
 
@@ -21,7 +21,7 @@ We can run
 ```
 clang -E hello.c
 ```
- and will end with a really long and complicated output, which you can view in `preprocessed.txt`. You can see that the contents of `stdio.h` are literally stuck in at the top of the file. If we scroll all the way to the bottom, we'll see the code that was in `hello.c`. 
+ and will end with a really long and complicated output, which you can view in `preprocessed.c`. You can see that the contents of `stdio.h` are literally stuck in at the top of the file. If we scroll all the way to the bottom, we'll see the code that was in `hello.c`. 
 
 ### Compiling
 
