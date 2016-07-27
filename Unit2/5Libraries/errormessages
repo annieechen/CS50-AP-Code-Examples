@@ -1,0 +1,15 @@
+clang -ggdb3 -O0 -std=c11 -Wall -Werror -Wshadow    include-libraries.c  -lcs50 -lm -o include-libraries
+include-libraries.c:11:6: error: implicitly declaring library function 'printf' with type 'int (const char *, ...)' [-Werror]
+     printf("Hello World\n");
+     ^
+include-libraries.c:11:6: note: include the header <stdio.h> or explicitly provide a declaration for 'printf'
+include-libraries.c:13:26: error: implicitly declaring library function 'strlen' with type 'unsigned long (const char *)' [-Werror]
+     int numCharacters = strlen("Hello World");
+                         ^
+include-libraries.c:13:26: note: include the header <string.h> or explicitly provide a declaration for 'strlen'
+include-libraries.c:16:34: error: implicitly declaring library function 'pow' with type 'double (double, double)' [-Werror]
+     printf("2 squared is %f\n", pow(2,2));
+                                 ^
+include-libraries.c:16:34: note: include the header <math.h> or explicitly provide a declaration for 'pow'
+3 errors generated.
+make: *** [include-libraries] Error 1
