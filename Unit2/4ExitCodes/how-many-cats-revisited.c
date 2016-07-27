@@ -28,4 +28,6 @@ int main (int argc, string argv[])
     // turn the second command line argument into an int
     int numCats = atoi(argv[1]);
     printf("You have %d cats. You need more cats!\n", numCats);
+    // program has completed successfully
+    return 0;
 }
