@@ -17,17 +17,18 @@
  // prototypes
  void changeGlobal(void);
  void tryToChangeLocalVariable(void);
+ 
  // because this variable is declared outside of the `main` function, it can be accessed and modified by all functions
- int GLOBALVARIABLE = 0; 
+ int GLOBAL_VARIABLE = 0; 
  
  int main(void)
  {
-     printf("GLOBALVARIABLE is currently %d\n", GLOBALVARIABLE);
+     printf("GLOBALVARIABLE is currently %d\n", GLOBAL_VARIABLE);
      changeGlobal();
      // though we have not outright set GLOBALVARIABLE to a different value, the function has changed it as a side effect
      // this is generally considered poor practice
      // because it's difficult to track where the value has changed, code is hard to debug
-     printf("GLOBALVARIABLE is now %d\n\n", GLOBALVARIABLE);
+     printf("GLOBALVARIABLE is now %d\n\n", GLOBAL_VARIABLE);
      
      // now, let's declare a variable within main
      int localVariable = 50;
@@ -40,7 +41,7 @@
  
  void changeGlobal(void)
  {
-     GLOBALVARIABLE = 28;
+     GLOBAL_VARIABLE = 28;
  }
  
  void tryToChangeLocalVariable(void)
