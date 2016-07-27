@@ -38,6 +38,7 @@ int main(void)
 
 /*
  * takes in a name string, and greets with printf statements
+ * has no return value (thus is of type void), but has a side effect (printing to the console)
  */
 void greet(string name)
 {
