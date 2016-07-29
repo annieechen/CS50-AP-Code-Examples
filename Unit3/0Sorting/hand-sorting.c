@@ -2,39 +2,39 @@
  * hand-sorting.c
  *
  * demonstrates how much more difficult sorting by a person becomes as the items to be sorted get larger
- * 
+ * while 5 elements are easy for a person to sort, it becomes much harder to sort 50 elements
  * can be ran as an in class demonstration, or provided as a code example
  
- * usage: ./hand-sorting [elements]
- * for instance: ./hand-sorting 3 9 8 7 6 5
+ * usage: ./hand-sorting <numElements>
  *
  * NOTE: rigorous error checking is traded for simplicity of code. It's very possible to break this program with improper input
  */
  
 #include <stdio.h>
 #include <cs50.h>
+#include <stdlib.h>
+#include <time.h>
 
 // prototypes
+void loadRandomArray(int array[], int nElements);
 void printArray(int array[], int nElements);
 bool isEqual(int firstArray[], int secondArray[], int nElements);
-void loadArray(string arrayString, int array[]);
+void stringToArray(string arrayString, int array[]);
 void sortArray(int array[], int nElements);
+
 
 int main(int argc, string argv[])
 {
-    // make sure there are some elements to sort
-    if(argc < 2)
+    // ensure proper usage
+    if(argc != 2)
     {
-        printf("usage: ./hand-sorting [elements]");
+        printf("usage: ./hand-sorting <numElements>\n");
         return -1;
     }
-    int nElements = argc -1;
+    int nElements = atoi(argv[1]);
     int original[nElements];
-    // load in array from command line arguments
-    for (int i = 0; i < nElements; i++)
-    {
-        original[i] = atoi(argv[i + 1]);
-    }
+    // load in array of random numbers
+    loadRandomArray(original, nElements);
     printf("Can you sort this array? \n");
     printArray(original, nElements);
     // sort it ourselves, so we have an answer to compare to
@@ -43,19 +43,29 @@ int main(int argc, string argv[])
     int answer[nElements];
     printf("Type in the sorted array, with elements separated by spaces\n");
     string arrayString = GetString();
-    loadArray(arrayString, answer);
+    stringToArray(arrayString, answer);
     // while they are incorrect, keep giving tries
     while(!isEqual(original, answer, nElements))
     {
         printf("Oops! You made a mistake! You should write a computer program to sort for you ;) Try again!\n");
         printf("Type in the sorted array, with elements separated by spaces\n");
         arrayString = GetString();
-        loadArray(arrayString, answer);
+        stringToArray(arrayString, answer);
     }
     // now, they must be correct
     printf("Congrats! You're correct! Try sorting a larger set of numbers!\n");
 }
 
+// takes in an array and the number of elements within it, generates a random number for each element
+void loadRandomArray(int array[], int nElements)
+{
+    // seed random number generator
+    srand(time(NULL));
+    for(int i = 0; i < nElements; i++)
+    {
+        array[i] = rand() % 100;
+    }
+}
 // takes in an int array and the number of elements in the array
 // prints each element, separated by a spaces, and a newline at the end 
 void printArray(int array[], int nElements)
@@ -85,7 +95,7 @@ bool isEqual(int firstArray[], int secondArray[], int nElements)
 // NOTE: this function makes use of pointer arithmetic, which isn't covered until later
 // treat it as an abstraction: you don't need to know how it works
 // just that it takes a string of numbers and loads them into the array
-void loadArray(string arrayString, int array[])
+void stringToArray(string arrayString, int array[])
 {
     char* startptr = arrayString;
     char* endptr;
