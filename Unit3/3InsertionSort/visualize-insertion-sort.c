@@ -1,12 +1,12 @@
 /*
- * visualize-selection-sort.c
+ * visualize-insertion-sort.c
  *
  * demonstrates each step of bubble sort
  * 
  * can be ran as an in class demonstration, or provided as a code example
  
- * usage: ./visualize-selection-sort [elements]
- * for instance: ./visualize-selection-sort 3 9 8 7 6 5
+ * usage: ./visualize-insertion-sort [elements]
+ * for instance: ./visualize-insertion-sort 3 9 8 7 6 5
  *
  * NOTE: rigorous error checking is traded for simplicity of code. It's very possible to break this program with improper input
  */
@@ -22,7 +22,7 @@ int main(int argc, string argv[])
     // make sure there are some elements to sort
     if(argc < 2)
     {
-        printf("usage: ./visualize-selection-sort <elements>\n");
+        printf("usage: visualize-insertion-sort\n");
         return -1;
     }
     int nElements = argc - 1;

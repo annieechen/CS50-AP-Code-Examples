@@ -22,7 +22,7 @@ int main(int argc, string argv[])
     // make sure there are some elements to sort
     if(argc < 2)
     {
-        printf("usage: ./visualize-bubble-sort [elements]");
+        printf("usage: ./visualize-bubble-sort <elements>");
         return -1;
     }
     int nElements = argc - 1;
