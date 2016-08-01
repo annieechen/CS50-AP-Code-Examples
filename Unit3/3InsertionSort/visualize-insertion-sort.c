@@ -22,7 +22,7 @@ int main(int argc, string argv[])
     // make sure there are some elements to sort
     if(argc < 2)
     {
-        printf("usage: visualize-insertion-sort\n");
+        printf("usage: ./visualize-insertion-sort [elements] \n");
         return -1;
     }
     int nElements = argc - 1;
@@ -37,29 +37,26 @@ int main(int argc, string argv[])
     printArray(original, nElements);
     
     // now, let's get to sorting!
-    
-    for (int i = 0; i < nElements; i++)
+    // we start at 1 because we consider the first element sorted. 
+    for (int i = 1; i < nElements; i++)
     {
-        printf("Checking for smallest, starting with %d\n", original[i]);
-        // store the index of the minimum of the unsorted array
-        int smallest = i;
-        for (int j = i + 1; j < nElements; j++)
-        {
-            if(original[j] < original[smallest])
-            {
-                smallest = j;
-            }
-        }
-        // now, let's add the smallest element from unsorted to the sorted
-        printf("%i is the smallest element in the unsorted array\n", original[smallest]);
-        // by swapping it with the first element in the unsorted array
-        printf("Swapping %i and %i\n", original[i], original[smallest]);
+        printf("So far, sorted array is: ");
+        printArray(original, i);
+        
         int temp = original[i];
-        original[i] = original[smallest];
-        original[smallest] = temp;
-        printArray(original, nElements);
-        // use getchar here to pause program until user hits enter
+        // now, we take the next unsorted element and move it into the sorted portion 
+        int  j = i - 1;
+        
+        // shift down elements to make space to insert new one
+        while ((temp < original[j]) && (j >= 0))
+        {
+            original[j + 1] = original[j];
+            j--;
+        }
+        printf("Inserting %d\n", temp);
+        // we use getChar here to pause execution until user hits enter
         getchar();
+        original[j + 1] = temp;
     }
     printf("Sorted: ");
     printArray(original, nElements);
